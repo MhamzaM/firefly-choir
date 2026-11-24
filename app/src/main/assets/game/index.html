@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover">
+  <meta name="theme-color" content="#15123a">
+  <title>Firefly Choir</title>
+  <meta name="description" content="Flash your lantern in rhythm with the fireflies until the whole meadow lights up as one.">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <canvas id="c" aria-label="Firefly meadow"></canvas>
+
+  <!-- In-game HUD -->
+  <div id="hud" class="hidden">
+    <div class="hud-top">
+      <div class="score"><span id="score">0</span></div>
+      <div class="night" id="nightLabel">Night 1</div>
+      <button class="icon" id="pauseBtn" aria-label="Pause">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="6" y="5" width="4" height="14" rx="1.5"/><rect x="14" y="5" width="4" height="14" rx="1.5"/></svg>
+      </button>
+    </div>
+    <div class="goal" id="goal"></div>
+    <div class="hint" id="hint" aria-live="polite"></div>
+    <div class="charges" id="charges" aria-label="Lantern charges"></div>
+  </div>
+
+  <!-- Title -->
+  <section id="title" class="screen">
+    <div class="panel">
+      <h1>Firefly<br>Choir</h1>
+      <p class="lede">Flash your lantern in rhythm with the fireflies until the whole meadow lights up as one.</p>
+      <div class="buttons">
+        <button class="primary" id="playBtn">Play</button>
+        <button id="howBtn">How to play</button>
+      </div>
+      <p class="best" id="bestLabel"></p>
+      <button class="link" id="soundBtn">Sound: on</button>
+    </div>
+  </section>
+
+  <!-- How to play -->
+  <section id="how" class="screen hidden">
+    <div class="panel">
+      <h2>How to play</h2>
+      <ol class="steps">
+        <li><span class="dot ember"></span><p>Each firefly glows brighter just before it flashes.</p></li>
+        <li><span class="dot lantern"></span><p>Tap to flash your lantern. Fireflies close by flash sooner and fly toward your light.</p></li>
+        <li><span class="dot group"></span><p>Flash together with a group and its neighbours join in. Get every firefly flashing at once before dawn.</p></li>
+      </ol>
+      <p class="small">Your lantern holds five flashes and refills slowly. Big groups refill it faster.</p>
+      <div class="buttons">
+        <button class="primary" id="howPlayBtn">Play</button>
+        <button id="howBackBtn">Back</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Pause -->
+  <section id="pause" class="screen hidden">
+    <div class="panel">
+      <h2>Paused</h2>
+      <div class="buttons">
+        <button class="primary" id="resumeBtn">Resume</button>
+        <button id="quitBtn">Quit to menu</button>
+      </div>
+      <button class="link" id="soundBtn2">Sound: on</button>
+    </div>
+  </section>
+
+  <!-- Night complete -->
+  <section id="nightDone" class="screen hidden passive">
+    <div class="panel slim">
+      <h2 id="nightDoneTitle">The meadow sang as one</h2>
+      <p class="lede" id="nightDoneText"></p>
+    </div>
+  </section>
+
+  <!-- Game over -->
+  <section id="over" class="screen hidden">
+    <div class="panel">
+      <h2>Dawn came</h2>
+      <p class="final"><span id="finalScore">0</span></p>
+      <p class="lede" id="overText"></p>
+      <div class="buttons">
+        <button class="primary" id="againBtn">Play again</button>
+        <button id="menuBtn">Menu</button>
+      </div>
+    </div>
+  </section>
+
+  <script src="game.js"></script>
+</body>
+</html>
